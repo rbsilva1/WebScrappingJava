@@ -43,7 +43,7 @@ public class ResultadoMegaSena {
      */
     private static String[] obterDezenas(String html) {
         Document doc = Jsoup.parse(html);
-        Elements ulDezenas = doc.getElementsByClass("lt-result");
+        Elements ulDezenas = doc.getElementsByClass("lt-result"); //Função busca elementos no documento HTML analisado  e armazena esses elementos
         String[] numeros = new String[ulDezenas.size()];
         for (int i = 0; i < ulDezenas.size(); i++) {
             Element dezenaElement = ulDezenas.get(i);
