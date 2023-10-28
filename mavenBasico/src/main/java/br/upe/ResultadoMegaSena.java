@@ -1,12 +1,15 @@
 package br.upe;
 
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /**
  * Classe que obtém os números do último sorteio da mega-sena.
@@ -39,18 +42,13 @@ public class ResultadoMegaSena {
      * @return array de Strings, onde cada elemento é uma dezena sorteada.
      */
     private static String[] obterDezenas(String html) {
-        // Posição inicial de onde começam as dezenas
-        Integer parteInicial = html.indexOf(MARCA_INICIAL_RETORNO_NAO_UTIL) + MARCA_INICIAL_RETORNO_NAO_UTIL.length();
-
-        // Posição final de onde começam as dezenas
-        Integer parteFinal = html.indexOf(MARCA_FINAL_RETORNO_NAO_UTIL);
-
-        // Substring montada com base nas posições, com remoção de espaços.
-        String extracao = html.substring(parteInicial, parteFinal).replaceAll(" ", "");
-
-        // Criação de array, com base no método split(), separando por hifen.
-        String[] numeros = extracao.split("-");
-
+        Document doc = Jsoup.parse(html);
+        Elements ulDezenas = doc.getElementsByClass("lt-result"); //Função busca elementos no documento HTML analisado  e armazena esses elementos
+        String[] numeros = new String[ulDezenas.size()];
+        for (int i = 0; i < ulDezenas.size(); i++) {
+            Element dezenaElement = ulDezenas.get(i);
+            numeros[i] = dezenaElement.text();
+        }
         return numeros;
     }
 }
