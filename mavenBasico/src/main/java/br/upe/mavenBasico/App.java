@@ -10,8 +10,9 @@ public class App {
                 System.out.println("Dezenas da Mega Sena:");
                 for (String dezena : dezenas) {
                     System.out.print(dezena + " ");
-                    System.out.println();
                 }
+                System.out.println();
+
             }
         }
     }
