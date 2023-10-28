@@ -49,7 +49,6 @@ class ResultadoMegasena {
             Element dezenaElement = ulDezenas.get(i);
             numeros[i] = dezenaElement.text();
         }
-
         return numeros;
     }
 }

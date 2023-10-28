@@ -12,8 +12,8 @@ public class App {
                     System.out.print(dezena + " ");
                     System.out.println();
                 }
-
             }
         }
     }
 }
+
