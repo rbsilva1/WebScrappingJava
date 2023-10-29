@@ -11,7 +11,7 @@ public class App {
                 for (String dezena : dezenas) {
                     System.out.print(dezena + " ");
                 }
-                System.out.println();
+                System.out.println("\n");
 
             }
         }
