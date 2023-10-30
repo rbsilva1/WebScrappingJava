@@ -6,14 +6,12 @@ public class App {
 
         while (dezenas == null) {
             dezenas = ResultadoMegaSena.obtemUltimoResultado();
-            if(dezenas != null){
-                System.out.println("Dezenas da Mega Sena:");
-                for (String dezena : dezenas) {
-                    System.out.print(dezena + " ");
-                }
-                System.out.println("\n");
+        }
+        System.out.println("Dezenas da Mega Sena:");
+        for (String dezena : dezenas) {
+            System.out.print(dezena + " ");
+            System.out.println("\n");
 
-            }
         }
     }
 }
