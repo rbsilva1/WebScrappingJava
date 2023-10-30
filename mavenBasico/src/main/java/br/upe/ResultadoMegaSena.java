@@ -27,7 +27,7 @@ public class ResultadoMegaSena {
         try (CloseableHttpClient httpclient = HttpClients.custom().disableRedirectHandling() // Desativa o tratamento de redirecionamento
                 .build()) {
             HttpGet httpget = new HttpGet(URL);
-            String html = EntityUtils.toString(httpclient.execute(httpget).getEntity());
+            String html = EntityUtils.toString(httpclient.execute(httpget).getEntity()); // converte a entidade da resposta em uma sequência de caracteres
             return obterDezenas(html);
         } catch (Exception e) {
             throw new RuntimeException("Um erro inesperado ocorreu !", e);
@@ -40,7 +40,7 @@ public class ResultadoMegaSena {
      * @return array de Strings, onde cada elemento é uma dezena sorteada.
      */
     private static String[] obterDezenas(String html) {
-        Document doc = Jsoup.parse(html);
+        Document doc = Jsoup.parse(html); // converte em um objeto Document
         Elements ulDezenas = doc.getElementsByClass("lt-result"); //Função busca elementos no documento HTML analisado  e armazena esses elementos
         String[] numeros = new String[ulDezenas.size()];
         for (int i = 0; i < ulDezenas.size(); i++) {

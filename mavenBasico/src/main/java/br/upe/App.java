@@ -4,7 +4,7 @@ public class App {
     public static void main(String[] args) {
         String[] dezenas = null;
 
-        while (dezenas == null) {
+        while (dezenas == null) { // evitar retorno nulo
             dezenas = ResultadoMegaSena.obtemUltimoResultado();
         }
         System.out.println("Dezenas da Mega Sena:");
