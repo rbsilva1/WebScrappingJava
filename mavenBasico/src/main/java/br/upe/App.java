@@ -1,11 +1,11 @@
-package br.upe.mavenBasico;
+package br.upe;
 
 public class App {
     public static void main(String[] args) {
         String[] dezenas = null;
 
         while (dezenas == null) {
-            dezenas = ResultadoMegasena.obtemUltimoResultado();
+            dezenas = ResultadoMegaSena.obtemUltimoResultado();
             if(dezenas != null){
                 System.out.println("Dezenas da Mega Sena:");
                 for (String dezena : dezenas) {
