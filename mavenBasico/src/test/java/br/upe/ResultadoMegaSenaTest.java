@@ -1,5 +1,7 @@
 package br.upe;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class ResultadoMegaSenaTest extends TestCase {
@@ -9,7 +11,8 @@ public class ResultadoMegaSenaTest extends TestCase {
   /**
    * Teste do método obtemUltimoResultado()
    */
-
+  
+  @Test
   public void testObtemUltimoResultado() {
     String[] ultimoResultado = ResultadoMegaSena.obtemUltimoResultado();
 
